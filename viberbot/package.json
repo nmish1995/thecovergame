@@ -1,0 +1,15 @@
+{
+  "name": "viberbot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "viber-bot": "^1.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
