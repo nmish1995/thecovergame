@@ -6,7 +6,7 @@ class Route {
     static function start() {
 
         $routes = explode('/', $_SERVER['REQUEST_URI']);
-
+        
         //var_dump($routes);
 
         // получаем имя контроллера и экшна

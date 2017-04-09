@@ -46,11 +46,15 @@ if (!empty($myrow['id'])) {
     exit ("<div class='alert alert-danger' role='alert'><span class='glyphicon glyphicon-remove-sign' aria-hidden='true'></span>Извините, пользователь с таким логином уже зарегистрирован</div>");
 }
 // если такого нет, то сохраняем данные
-$result2 = mysql_query("INSERT INTO users (name,lastname) VALUES('$name','$lastname')");
+$result2 = mysql_query("INSERT INTO `users` (`name`, `lastname`) VALUES ('{$name}','{$lastname}')");
 // Проверяем, есть ли ошибки
 if ($result2=='TRUE' and mb_strlen($name)>2 and mb_strlen($name)<25 and mb_strlen($lastname)>2 and mb_strlen($lastname)<25  and mb_strlen($lastname)>2 and mb_strlen($login)<25  and mb_strlen($login)>2 and mb_strlen($password)<25 and mb_strlen($password)>2)
 {
     echo "<div class='alert alert-success' role='alert'><span class='glyphicon glyphicon-ok-circle' aria-hidden='true'></span>Вы почти зарегистрированы! Чтобы подтвердить регистрацию, перейдите по <i><b><a href='/firstlog'>этой ссылке</a></b></i></div>";
+    $_SESSION['name'] = $name;
+    $_SESSION['lastname'] = $lastname;
+    $_SESSION['password'] = $password;
+    $_SESSION['login'] = $login;
 }else {
     echo "<div class='alert alert-danger' role='alert'><span class='glyphicon glyphicon-remove-sign' aria-hidden='true'></span>Ошибка! Вы не зарегистрированы</div>";
 }
