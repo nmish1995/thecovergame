@@ -38,7 +38,7 @@ if (!function_exists('mb_ucfirst') && extension_loaded('mbstring'))
         return $name;
     }
 }
-$lastname=mb_ucfirst($lastname);
+$name=mb_ucfirst($name);
 if (!function_exists('mb_ucfirst') && extension_loaded('mbstring'))
 {
     function mb_ucfirst($lastname, $encoding='UTF-8')
@@ -50,8 +50,8 @@ if (!function_exists('mb_ucfirst') && extension_loaded('mbstring'))
     }
 }
 $lastname=mb_ucfirst($lastname);
-$login=ucfirst(strtolower($login));
-$password=ucfirst(strtolower($password));
+$login=strtolower($login);
+$password=strtolower($password);
 //удаляем лишние пробелы
 $login=trim($login);
 $password=trim($password);

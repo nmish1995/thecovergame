@@ -17,7 +17,7 @@ if (empty($login) or empty($password)) //если пользователь не 
 {
     exit("<div class='alert alert-danger' role='alert'><span class='glyphicon glyphicon-remove-sign' aria-hidden='true'></span>Вы не ввели всю информацию, вернитесь назад и заполните все поля!</div>");
 }
-if($_SESSION['name']==null or $_SESSION['lastname']==null or $_SESSION['login']==null or $_SESSION['password']==null){
+if($_SESSION['login']==null or $_SESSION['password']==null){
     exit("<div class='alert alert-danger' role='alert'><span class='glyphicon glyphicon-remove-sign' aria-hidden='true'></span>У вас нет доступа к этой странице!</div>");
 }
 $login=strtolower($login);
@@ -38,22 +38,19 @@ if(mysql_num_rows($user_login) > 0) {
 }
 $result = mysql_query("SELECT * FROM `users` WHERE login='$login'",$db); //извлекаем из базы все данные о пользователе с введенным логином
 $myrow = mysql_fetch_assoc($result);
-if (empty($myrow['password']))
+if (empty($login))
 {
     //если пользователя с введенным логином не существует
     exit ("<div class='alert alert-danger' role='alert'><span class='glyphicon glyphicon-remove-sign' aria-hidden='true'></span>Извините, введённый вами логин или пароль неверный</div>");
 }
-else {
+if ($myrow['login']==$login and $myrow['password']==$password) {
     //если существует, то сверяем пароли
-    if ($myrow['password']==$password) {
         //если пароли совпадают, то запускаем пользователю сессию! Можете его поздравить, он вошел!
         $_SESSION['login']=$myrow['login'];
         $_SESSION['password']=$myrow['password'];
         //эти данные очень часто используются, вот их и будет "носить с собой" вошедший пользователь
         echo "<div class='alert alert-success' role='alert'><span class='glyphicon glyphicon-ok-circle' aria-hidden='true'></span>Вы успешно вошли на сайт! <a href='/'>Главная страница</a>";
-    }
-    else {
+    } else {
         //если пароли не сошлись
         exit ("<div class='alert alert-danger' role='alert'><span class='glyphicon glyphicon-remove-sign' aria-hidden='true'></span>Извините, введённый вами логин или пароль неверный</div>");
     }
-}
