@@ -38,7 +38,7 @@ if(isset($send)) {
     $result = mysql_query($query) or die ("Error : " . mysql_error());
 
     if(!$result){
-        echo "<div class='alert alert-danger' role='alert'><span class='glyphicon glyphicon-remove-sign' aria-hidden='true'></span>Логин и/или пароль введены неверно</div>";
+        exit ("<div class='alert alert-danger' role='alert'><span class='glyphicon glyphicon-remove-sign' aria-hidden='true'></span>Логин и/или пароль введены неверно</div>");
     }else{
         $_SESSION['login'] = $result["login"];
         $_SESSION['id'] = $result["id"];
