@@ -6,13 +6,20 @@ if (isset($_POST['login'])) {
     }
 }
 //заносим введенный пользователем логин в переменную $login, если он пустой, то уничтожаем переменную
-if (isset($_POST['password'])) { $password=$_POST['password']; if ($password =='') { unset($password);} }
+if (isset($_POST['password'])) {
+    $password=$_POST['password'];
+    if ($password =='') {
+        unset($password);
+    }
+}
 //заносим введенный пользователем пароль в переменную $password, если он пустой, то уничтожаем переменную
 if (empty($login) or empty($password)) //если пользователь не ввел логин или пароль, то выдаем ошибку и останавливаем скрипт
 {
-    echo "<div class='alert alert-danger' role='alert'><span class='glyphicon glyphicon-remove-sign' aria-hidden='true'></span>Вы не ввели всю информацию, вернитесь назад и заполните все поля!</div>";
+    exit("<div class='alert alert-danger' role='alert'><span class='glyphicon glyphicon-remove-sign' aria-hidden='true'></span>Вы не ввели всю информацию, вернитесь назад и заполните все поля!</div>");
 }
-
+if($_SESSION['name']==null or $_SESSION['lastname']==null or $_SESSION['login']==null or $_SESSION['password']==null){
+    exit("<div class='alert alert-danger' role='alert'><span class='glyphicon glyphicon-remove-sign' aria-hidden='true'></span>У вас нет доступа к этой странице!</div>");
+}
 $login=strtolower($login);
 $password=strtolower($password);
 $login=trim($login);

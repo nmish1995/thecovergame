@@ -1,8 +1,28 @@
 <?php
-if (isset($_POST['login'])) { $login = $_POST['login']; if ($login == '') { unset($login);} } //заносим введенный пользователем логин в переменную $login, если он пустой, то уничтожаем переменную
-if (isset($_POST['password'])) { $password=$_POST['password']; if ($password =='') { unset($password);} }
-if (isset($_POST['name'])) { $name=$_POST['name']; if ($name =='') { unset($name);} }
-if (isset($_POST['lastname'])) { $lastname=$_POST['lastname']; if ($lastname =='') { unset($lastname);} }
+if (isset($_POST['login'])) {
+    $login = $_POST['login'];
+    if ($login == '') {
+        unset($login);
+    }
+} //заносим введенный пользователем логин в переменную $login, если он пустой, то уничтожаем переменную
+if (isset($_POST['password'])) {
+    $password=$_POST['password'];
+    if ($password =='') {
+        unset($password);
+    }
+}
+if (isset($_POST['name'])) {
+    $name=$_POST['name'];
+    if ($name =='') {
+        unset($name);
+    }
+}
+if (isset($_POST['lastname'])) {
+    $lastname=$_POST['lastname'];
+    if ($lastname =='') {
+        unset($lastname);
+    }
+}
 //заносим введенный пользователем пароль в переменную $password, если он пустой, то уничтожаем переменную
 if (empty($login) or empty($password) or empty($name) or empty($lastname)) //если пользователь не ввел логин или пароль, то выдаем ошибку и останавливаем скрипт
 {
@@ -11,12 +31,12 @@ if (empty($login) or empty($password) or empty($name) or empty($lastname)) //е�
 if (!function_exists('mb_ucfirst') && extension_loaded('mbstring'))
 {
     function mb_ucfirst($name, $encoding='UTF-8')
-{
-    $name = mb_ereg_replace('^[\ ]+', '', $name);
-    $name = mb_strtoupper(mb_substr($name, 0, 1, $encoding), $encoding).
-        mb_substr($name, 1, mb_strlen($name), $encoding);
-    return $name;
-}
+    {
+        $name = mb_ereg_replace('^[\ ]+', '', $name);
+        $name = mb_strtoupper(mb_substr($name, 0, 1, $encoding), $encoding).
+            mb_substr($name, 1, mb_strlen($name), $encoding);
+        return $name;
+    }
 }
 $lastname=mb_ucfirst($lastname);
 if (!function_exists('mb_ucfirst') && extension_loaded('mbstring'))
