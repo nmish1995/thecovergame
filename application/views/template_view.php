@@ -115,9 +115,23 @@
                 <ul>
                     <li><a href="/">Домашняя страница</a></li>
                     <li><a href="/contacts">Контакты</a></li>
+                    <li><a href="?st=2">Изменить дизайн</a></li>
                     <li><a href="/randpass">Генератор паролей</a></li>
 
                     <?php
+if(isset($_GET['st'])){
+$old_dizayn=$_GET['st'];
+}else{
+$old_dizayn=1;
+}if($old_dizayn==2){
+    echo "<link rel='stylesheet' type='text/css' href='/assets/css/main_new.css'>";
+$new_dizayn=1;
+include "/";
+}else{
+                        echo "<link rel='stylesheet' type='text/css' href='/assets/css/main.css'>";
+$new_dizayn=2;
+include "/";
+}
 /*                    include 'application/models/model_users.php';
                     $enter = '<li><a href="/login">Войти</a></li>';
                     $reg = '<li><a href="/registration">Регистрация</a></li>';
