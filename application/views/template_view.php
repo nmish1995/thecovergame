@@ -11,7 +11,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <!--    <link rel="stylesheet" href="assets/css/main.css" />-->
     <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css"><![endif]-->
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
     <script type="text/javascript">
@@ -33,17 +33,17 @@
     </script>
     <?php
     if(isset($_GET['st'])){
-    $old_dizayn=$_GET['st'];
+        $old_dizayn=$_GET['st'];
     }else{
-    $old_dizayn=1;
+        $old_dizayn=1;
     }if($old_dizayn==2){
-    echo "<link rel='stylesheet' type='text/css' href='/assets/css/main_new.css'>";
-    $new_dizayn=1;
-    include "/2";
+        echo "<link rel='stylesheet' type='text/css' href='/assets/css/main_new.css'>";
+        $new_dizayn=1;
+        include "/";
     }else{
-    echo "<link rel='stylesheet' type='text/css' href='/assets/css/main.css'>";
-    $new_dizayn=2;
-    include "/";
+        echo "<link rel='stylesheet' type='text/css' href='/assets/css/main.css'>";
+        $new_dizayn=2;
+        include "/";
     }
     ?>
 </head>

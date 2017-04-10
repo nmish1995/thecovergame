@@ -30,8 +30,8 @@ require_once("start.php");
 if(isset($_POST["password"])){ $password = $_POST["password"]; }
 if(isset($_POST["login"])){ $login = $_POST["login"]; }
 if(isset($_POST["send"])){ $send = $_POST["send"]; }
-$login=strtolower($login);
-$password=strtolower($password);
+$login=mb_strtolower($login);
+$password=mb_strtolower($password);
 //удаляем лишние пробелы
 $login=trim($login);
 $password=trim($password);
