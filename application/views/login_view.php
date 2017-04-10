@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <h1>Страница авторизации</h1>
 
 <form method="post">
@@ -8,30 +7,59 @@
         </tr>
         <tr>
             <td>Логин<em>*</em></td>
-            <td><input type="text" name="login" required="required"></td>
+            <td><label><input type="text" name="login" required="required"></label></td>
         </tr>
         <tr>
             <td>Пароль<em>*</em></td>
-            <td><input type="password" name="password" required="required"></td>
+            <td><label><input type="password" name="password" required="required"></label></td>
         </tr>
         <tr>
-        <th colspan="2" style="text-align: right">
-            <input type="submit" value="Войти" name="send" style="width: 150px; height: 30px"></th>
+            <th colspan="2" style="text-align: right">
+                <input type="submit" value="Войти" name="send" style="width: 150px; height: 30px"></th>
         </tr>
     </table>
 </form>
-<div><p>Похожие статьи: <code><a href="/registration">Регистрация</a></code> <code><a href="/randpass">Генератор паролей</a></code></p></div>
+<div>
+    <p>Похожие статьи:
+        <code>
+            <a href="/registration">Регистрация</a>
+        </code>
+        <code>
+            <a href="/randpass">Генератор паролей</a></code>
+    </p>
+</div>
 
 
 <?php
+
+//Отключаем вывод ошибок
+function err_handler($errno, $errmsg, $filename, $linenum)
+{
+    if (!in_array($errno, Array(E_NOTICE, E_STRICT, E_WARNING)))
+    {
+        $date = date('Y-m-d H:i:s (T)');
+        $f = fopen('errors.log', 'a');
+        if (!empty($f)) { $err = "\r\n";
+            $err .= " $date\r\n";
+            $err .= " $errno\r\n";
+            $err .= " $errmsg\r\n";
+            $err .= " $filename\r\n";
+            $err .= " $linenum\r\n";
+            $err .= "\r\n";
+            fwrite($f, $err);
+            fclose($f);
+        }
+    }
+}
+set_error_handler('err_handler');
 
 require_once("start.php");
 
 if(isset($_POST["password"])){ $password = $_POST["password"]; }
 if(isset($_POST["login"])){ $login = $_POST["login"]; }
 if(isset($_POST["send"])){ $send = $_POST["send"]; }
-$login=mb_strtolower($login);
-$password=mb_strtolower($password);
+$login = mb_strtolower($login);
+$password = mb_strtolower($password);
 //удаляем лишние пробелы
 $login=trim($login);
 $password=trim($password);
