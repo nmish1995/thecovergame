@@ -45,9 +45,6 @@ if(isset($send)) {
     }else{
 
         $_SESSION['login'] = $result["login"];
-        $_SESSION['id'] = $result["id"];
-        $_SESSION['password'] = $result["password"];
-        $_SESSION['name'] = $result["name"];
         $_SESSION['lastname'] = $result["lastname"];
 
         header("Location: /");

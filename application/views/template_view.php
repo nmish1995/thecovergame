@@ -130,7 +130,6 @@
                 <ul>
                     <li><a href="/">Домашняя страница</a></li>
                     <li><a href="/contacts">Контакты</a></li>
-                    <li><a href="?st=2">Изменить дизайн</a></li>
                     <li><a href="/randpass">Генератор паролей</a></li>
 
                     <?php

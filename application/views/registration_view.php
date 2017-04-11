@@ -1,7 +1,7 @@
 <h1>Регистрация</h1>
 <form action="/save_user" method="post">
     <!--**** save_user.php - это адрес обработчика.  То есть, после нажатия на кнопку "Зарегистрироваться", данные из полей  отправятся на страничку save_user.php методом "post" ***** -->
-    <table>
+    <table class="login">
         <tr>
             <td><h4><b><label>Как вас зовут?<br></label></b></h4></td>
             <td><h5>Имя:<em>*</em></h5><input name="name" type="text" size="15" maxlength="15" required="required" placeholder="Например:Иван"></td>
