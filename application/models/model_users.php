@@ -11,4 +11,9 @@ class Users
             return false;
         }
     }
+    static public function UserLogout()
+    {
+        session_unset();
+        session_destroy();
+    }
 }

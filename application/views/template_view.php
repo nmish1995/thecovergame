@@ -32,19 +32,19 @@
         });
     </script>
     <?php
-/*    if(isset($_GET['st'])){
-        $old_dizayn=$_GET['st'];
-    }else{
-        $old_dizayn=1;
-    }if($old_dizayn==2){
-        echo "<link rel='stylesheet' type='text/css' href='/assets/css/main_new.css'>";
-        $new_dizayn=1;
-        include "/";
-    }else{
-        echo "<link rel='stylesheet' type='text/css' href='/assets/css/main.css'>";
-        $new_dizayn=2;
-        include "/";
-    }*/
+    /*    if(isset($_GET['st'])){
+            $old_dizayn=$_GET['st'];
+        }else{
+            $old_dizayn=1;
+        }if($old_dizayn==2){
+            echo "<link rel='stylesheet' type='text/css' href='/assets/css/main_new.css'>";
+            $new_dizayn=1;
+            include "/";
+        }else{
+            echo "<link rel='stylesheet' type='text/css' href='/assets/css/main.css'>";
+            $new_dizayn=2;
+            include "/";
+        }*/
     ?>
 </head>
 <body>
@@ -134,17 +134,17 @@
                     <li><a href="/randpass">Генератор паролей</a></li>
 
                     <?php
-                    /*                    include 'application/models/model_users.php';
-                                        $enter = '<li><a href="/login">Войти</a></li>';
-                                        $reg = '<li><a href="/registration">Регистрация</a></li>';
-                                        $user = new Users();
-                                        $result = $user::sayHi();
-                                        if ($result==false){
-                                            echo $enter;
-                                            echo $reg;
-                                        }else{
-                                            echo "test123";
-                                        }*/
+                    include 'application/models/model_users.php';
+                    $enter = '<li><a href="/login">Войти</a></li>';
+                    $reg = '<li><a href="/registration">Регистрация</a></li>';
+                    $user = new Users();
+                    $result = $user::sayHi();
+                    if ($result==false){
+                        echo $enter;
+                        echo $reg;
+                    }else{
+                        echo "<li><a href=".$user::UserLogout().">Выйти</li>";
+                    }
                     ?>
                     <li><a href="/login">Войти</a></li>
                     <li><a href="/registration">Регистрация</a></li>
