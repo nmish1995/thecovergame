@@ -134,9 +134,9 @@
                     <li><a href="/randpass">Генератор паролей</a></li>
 
                     <?php
-                    include 'application/models/model_users.php';
-                    $enter = '<li><a href="/login">Войти</a></li>';
-                    $reg = '<li><a href="/registration">Регистрация</a></li>';
+                    include "application/models/model_users.php";
+                    $enter = "<li><a href='/login'>Войти</a></li>";
+                    $reg = "<li><a href='/registration'>Регистрация</a></li>";
                     $user = new Users();
                     $result = $user::sayHi();
                     if ($result==false){
@@ -146,8 +146,6 @@
                         echo "<li><a href=".$user::UserLogout().">Выйти</li>";
                     }
                     ?>
-                    <li><a href="/login">Войти</a></li>
-                    <li><a href="/registration">Регистрация</a></li>
                     <li>
                         <span class="opener">Математика</span>
                         <ul>
