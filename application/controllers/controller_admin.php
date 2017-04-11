@@ -5,7 +5,6 @@ class Controller_Admin extends Controller
 	
 	function action_index()
 	{
-		session_start();
 		
 		/*
 		Для простоты, в нашем случае, проверяется равенство сессионной переменной admin прописанному
@@ -22,12 +21,7 @@ class Controller_Admin extends Controller
 		    session_destroy();
 			Route::ErrorPage404();
 			*/
-			echo "
-			 <div class='alert alert-danger' role='alert'>
-        <span class='glyphicon glyphicon-exclamation-sign' aria-hidden='true'></span>
-        <span class='sr-only'>Error:</span>
-        Вы не вошли в аккаунт, доступ запрещен
-			";
+			echo "<div class='alert alert-danger' role='alert'><span class='glyphicon glyphicon-exclamation-sign' aria-hidden='true'></span>Вы не вошли в аккаунт, доступ запрещен</div>";
             $this->view->generate('login_view.php', 'template_view.php');
 		}
 

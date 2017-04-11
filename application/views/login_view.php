@@ -24,8 +24,10 @@
         <code>
             <a href="/registration">Регистрация</a>
         </code>
+
         <code>
-            <a href="/randpass">Генератор паролей</a></code>
+            <a href="/randpass">Генератор паролей</a>
+        </code>
     </p>
 </div>
 
