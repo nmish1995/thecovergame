@@ -7,12 +7,12 @@ class Controller_Login extends Controller
 	{
 		$data["login_status"] = "";
 
-		if(isset($_POST['login']) && isset($_POST['password']))
+		if(isset($_POST['login']) and isset($_POST['password']))
 		{
 			$login = $_POST['login'];
 			$password =$_POST['password'];
 
-			if($login=="admin_mike" && $password=="2508")
+			if($login=="admin_mike" and $password=="2508")
 			{
 
 				$data["login_status"] = "access_granted";

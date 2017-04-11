@@ -2,6 +2,8 @@
 
 require_once("start.php");
 
+session_start();
+
 if(isset($_POST["password"])){
 
     $password = $_POST["password"];
